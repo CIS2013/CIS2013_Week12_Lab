@@ -2,7 +2,7 @@
 #include <cstring>
 using namespace std;
 
-class Person {
+class Human {
 	private:
 		int legs;
 		int arms;
@@ -12,19 +12,24 @@ class Person {
 		string hair;
 		string name;
 		
-		Person(){
+		Human(){
 			setName();
 			setHair();
 			legs = 2;
 			arms = 2;
 		}
 		
-		string getLegs(){
+		int getLegs(){
 			return legs;
 		}
 		
-		string getArms(){
+		int getArms(){
 			return arms;
+		}
+		
+		void setLegs(){
+			cout << "How many legs does this person have? ";
+			cin >> legs;
 		}
 		
 		void setName(){
@@ -38,16 +43,35 @@ class Person {
 		}
 };
 
+class Man: public Human {
+	public:
+	
+		bool hasEgo = true;
+		string pee = "standing";
+};
+
+class Woman: public Human {
+	public:
+	
+		bool hasEgo = false;
+		string pee = "sitting";
+};
+
 int main(){
 
-	Person bob;
-	Person sue;
+	Man bob;
+	Woman sue;
 	
 	cout << "Our " << bob.name << " has " << bob.getLegs() << " legs & " << 
 		bob.getArms() << " arms their hair color is " << bob.hair << endl;
 		
+	cout << bob.name << " has an ego? " << bob.hasEgo << endl << " and pees " << bob.pee << endl;
+	
+	// All Functions that are part of a class are called METHODS
 	cout << "Our " << sue.name << " has " << sue.getLegs() << " legs & " << 
 		sue.getArms() << " arms their hair color is " << sue.hair << endl;
+		
+	cout << sue.name << " has an ego? " << sue.hasEgo << endl << " and pees " << sue.pee << endl;
 
 	return 0;
 }
